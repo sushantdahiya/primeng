@@ -243,7 +243,7 @@ export class Carousel implements AfterViewChecked,AfterViewInit,OnDestroy{
     setPage(p, enforce?: boolean) {
         if(p !== this.page || enforce) {
             this.page = p;
-            this.left = (-1 * (this.domHandler.innerWidth(this.viewportViewChild.nativeElement) * this.page));
+            this.left = (-1 * (this.domHandler.innerWidth(this.viewportViewChild.nativeElement) * this.page))/this.numVisible;
             this.firstVisible = this.page * this.columns;
             this.onPage.emit({
                 page: this.page
